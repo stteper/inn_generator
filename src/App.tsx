@@ -22,19 +22,19 @@ const App = () => (
       <div className="row align-items-center h-100">
         <div className="col-sm-12">
           <div className="row justify-content-center">
-            <div className="col-4 text-center">
+            <div className="col-md-4  mb-5 text-center">
               <Card title="Физ. лицо" color={Colors.info}>
                 <Field name="inn_fl" title="ИНН" generator={innFlGen} key={1} />
                 <Field name="snils_fl" title="СНИЛС" generator={snilsGen} key={2} />
               </Card>
             </div>
-            <div className="col-4 text-center">
+            <div className="col-md-4 mb-5 text-center">
               <Card title="ИП" color={Colors.danger}>
                 <Field name="inn_ip" title="ИНН" generator={innFlGen} key={1} />
                 <Field name="ogrn_ip" title="ОГРНИП" generator={ogrnipGen} key={2} />
               </Card>
             </div>
-            <div className="col-4 text-center">
+            <div className="col-md-4  mb-5 text-center">
               <Card title="Юр. лицо" color={Colors.warning}>
                 <Field name="inn_ul" title="ИНН" generator={innGen} key={1} />
                 <Field name="ogrn" title="ОГРН" generator={ogrnGen} key={2} />
