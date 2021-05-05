@@ -1,6 +1,10 @@
+export interface IGenParam {
+  len?: number
+};
+
 abstract class BaseGenerator {
 
-  abstract generate(): string
+  abstract generate(param?: IGenParam): string
 
   protected generateRndStr(len: number, vocab?: string|undefined):string {
     if(typeof(vocab) === 'undefined') {

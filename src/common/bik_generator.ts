@@ -9,8 +9,7 @@ class BikGenerator extends BaseGenerator {
     } while (coeffs.indexOf(midDigits)!== -1);
 
     const lastDigits = Math.floor(Math.random() * 950+ 50);
-    const res = '04' + midDigits + this.generateRndStr(2) + (lastDigits < 100 ? '0'+ String(lastDigits) : String(lastDigits));
-    return res;
+    return '04' + midDigits + this.generateRndStr(2) + (lastDigits < 100 ? '0'+ String(lastDigits) : String(lastDigits));
   }
 
 }

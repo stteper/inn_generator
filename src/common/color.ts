@@ -12,6 +12,5 @@ export enum Colors {
 
 export function getTextColor(bgColor: Colors):Colors {
   const isLight = bgColor === Colors.white || bgColor === Colors.warning || bgColor === Colors.light;
-  console.log(isLight);
   return isLight ?  Colors.dark : Colors.white;
 }

@@ -1,23 +1,29 @@
-import BaseGenerator from "../common/generator";
-import React, { useState } from 'react';
+import BaseGenerator,{ IGenParam } from "../common/generator";
+import React, { useState, useEffect } from 'react';
 
 export interface IField {
   name: string,
   title: string,
   generator: BaseGenerator,
+  params?: IGenParam,
   onUpdate?: (val: string)=> void
 }
 
-const Field : React.FC<IField> = ({ name, title , generator,onUpdate}) => {
-  const [val, setVal] = useState<string>(generator.generate());
+const Field : React.FC<IField> = ({ name, title , generator,params, onUpdate}) => {
+  const [val, setVal] = useState<string>(generator.generate(params));
 
   function valRefresh() {
-    const newVal = generator.generate();
+    const newVal = generator.generate(params);
     setVal(newVal);
     if(typeof(onUpdate) === 'function') {
       onUpdate(newVal);
     }
   }
+
+  useEffect(() => {
+    const newVal = generator.generate(params);
+    setVal(newVal);
+  }, [params, generator]);
 
   const copyEventListener = (e: ClipboardEvent) => {
     if(e.clipboardData!== null) {

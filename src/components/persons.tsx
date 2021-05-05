@@ -1,6 +1,6 @@
 import {Card} from "./card";
 import {Colors} from "../common/color";
-import {Field, IField} from "./field";
+import {Field} from "./field";
 import React from "react";
 
 import InnGenerator from '../common/inn_generator';
