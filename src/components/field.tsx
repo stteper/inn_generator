@@ -4,14 +4,19 @@ import React, { useState } from 'react';
 export interface IField {
   name: string,
   title: string,
-  generator: BaseGenerator
+  generator: BaseGenerator,
+  onUpdate?: (val: string)=> void
 }
 
-const Field : React.FC<IField> = ({ name, title , generator}) => {
+const Field : React.FC<IField> = ({ name, title , generator,onUpdate}) => {
   const [val, setVal] = useState<string>(generator.generate());
 
   function valRefresh() {
-    setVal(generator.generate());
+    const newVal = generator.generate();
+    setVal(newVal);
+    if(typeof(onUpdate) === 'function') {
+      onUpdate(newVal);
+    }
   }
 
   const copyEventListener = (e: ClipboardEvent) => {
