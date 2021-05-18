@@ -20,20 +20,20 @@ const Persons : React.FC = () => {
     <>
       <div className="mb-5 text-center">
         <Card title="Физ. лицо" color={Colors.info}>
-          <Field name="inn_fl" title="ИНН" generator={innFlGen} key={1} />
-          <Field name="snils_fl" title="СНИЛС" generator={snilsGen} key={2} />
+          <Field name="inn_fl" title="ИНН" generator={innFlGen} />
+          <Field name="snils_fl" title="СНИЛС" generator={snilsGen} />
         </Card>
       </div>
       <div className="mb-5 text-center">
         <Card title="ИП" color={Colors.danger}>
-          <Field name="inn_ip" title="ИНН" generator={innFlGen} key={1} />
-          <Field name="ogrn_ip" title="ОГРНИП" generator={ogrnipGen} key={2} />
+          <Field name="inn_ip" title="ИНН" generator={innFlGen} />
+          <Field name="ogrn_ip" title="ОГРНИП" generator={ogrnipGen} />
         </Card>
       </div>
       <div className="mb-5 text-center">
         <Card title="Юр. лицо" color={Colors.warning}>
-          <Field name="inn_ul" title="ИНН" generator={innGen} key={1} />
-          <Field name="ogrn" title="ОГРН" generator={ogrnGen} key={2} />
+          <Field name="inn_ul" title="ИНН" generator={innGen} />
+          <Field name="ogrn" title="ОГРН" generator={ogrnGen} />
         </Card>
       </div>
     </>
