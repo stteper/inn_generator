@@ -12,23 +12,10 @@ class SnilsGenerator extends BaseGenerator {
     for(let i = 0; i < val.length; i++) {
       sum += +val[i] * (9-i);
     }
-    if(sum < 100) {
-      return sum;
-    }
-    if(sum <=101) {
-      return 0;
-    } else {
-      return sum % 101;
-    }
+    return (sum < 100) ? sum : ((sum <=101) ? 0 : sum % 101);
   }
 
-  private showTwoDig(val:number):string {
-    if(val < 10) {
-      return '0' + String(val);
-    } else {
-      return String(val);
-    }
-  }
+  private showTwoDig = (val: number): string => `0${val}`.slice(-2);
 
   private showFormat(val:string):string {
     let arrVal = val.split('');
