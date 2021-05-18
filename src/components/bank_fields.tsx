@@ -35,11 +35,11 @@ const BankFields : React.FC = () => {
   return (
     <div className="mb-5 text-center">
       <Card title="Банковские данные" color={Colors.secondary}>
-        <Field name="bank_bik" title="БИК" generator={bikGen} key={1} onUpdate={updateBik}/>
-        <Field name="bank_kpp" title="КПП" params={KppGenParam} generator={rndGen} key={2} />
-        <Field name="bank_okpo" title="ОКПО" generator={okpoGen} key={3} />
-        <Field name="bank_rs" title="Расчетный счет" params={KorrGenParams} generator={rsGen} key={4} />
-        <Field name="bank_ks" title="Корреспондентский счет" params={KorrGenParams} generator={korGen} key={5} />
+        <Field name="bank_bik" title="БИК" generator={bikGen} onUpdate={updateBik}/>
+        <Field name="bank_kpp" title="КПП" params={KppGenParam} generator={rndGen} />
+        <Field name="bank_okpo" title="ОКПО" generator={okpoGen} />
+        <Field name="bank_rs" title="Расчетный счет" params={KorrGenParams} generator={rsGen} />
+        <Field name="bank_ks" title="Корреспондентский счет" params={KorrGenParams} generator={korGen} />
       </Card>
     </div>
   );
