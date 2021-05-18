@@ -7,11 +7,11 @@ export interface IRndGenParam extends IGenParam {
 class RandGenerator extends BaseGenerator {
   generate(param?: IRndGenParam):string {
     let len = 10;
-    if(typeof param !== 'undefined' && param.len) {
+    if(param && param.len) {
       len = param.len;
     }
     let vocab = '0123456789abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ';
-    if(typeof param !== 'undefined' && typeof param.vocab !== 'undefined') {
+    if(param && param.vocab) {
       vocab = param.vocab;
     }
     return this.generateRndStr(len,vocab);
