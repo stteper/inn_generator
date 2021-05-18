@@ -23,12 +23,7 @@ const KppGenParam: IRndGenParam = {
 const BankFields : React.FC = () => {
   const [bikVal, setBikVal] = useState<string>('');
 
-  let KorrGenParams:IKsGenParam = {
-    bik: bikVal
-  };
-
   function updateBik(val: string):void {
-    KorrGenParams.bik = val;
     setBikVal(val);
   }
 
@@ -38,8 +33,8 @@ const BankFields : React.FC = () => {
         <Field name="bank_bik" title="БИК" generator={bikGen} onUpdate={updateBik}/>
         <Field name="bank_kpp" title="КПП" params={KppGenParam} generator={rndGen} />
         <Field name="bank_okpo" title="ОКПО" generator={okpoGen} />
-        <Field name="bank_rs" title="Расчетный счет" params={KorrGenParams} generator={rsGen} />
-        <Field name="bank_ks" title="Корреспондентский счет" params={KorrGenParams} generator={korGen} />
+        <Field name="bank_rs" title="Расчетный счет" params={ {bik: bikVal } as IKsGenParam } generator={rsGen} />
+        <Field name="bank_ks" title="Корреспондентский счет" params={ {bik: bikVal } as IKsGenParam } generator={korGen} />
       </Card>
     </div>
   );
