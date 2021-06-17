@@ -23,6 +23,11 @@ const validatorItems:Array<IValidatorItem> = [
     name: 'main_ru',
     id: 'main_ru',
     vocab: rus + rus.toUpperCase() + digits + spec
+  },
+  {
+    name: 'fio',
+    id: 'fio',
+    vocab: rus + rus.toUpperCase()
   }
 ]
 
