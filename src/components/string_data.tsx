@@ -3,6 +3,7 @@ import {Colors} from "../common/color";
 import React, {ChangeEvent, KeyboardEvent, useState, useCallback} from "react";
 import {Field} from "./field";
 import RandGenerator, {IRndGenParam} from "../common/rand_generator";
+import {digits, lat, rus, spec} from "../common/symbols";
 
 const rndGen = new RandGenerator();
 
@@ -11,10 +12,7 @@ interface IValidatorItem {
   id: string,
   vocab: string
 }
-const rus = 'абвгдеёжзиклмнопрстуфхцчшщъыьэюя';
-const lat = 'abcdefghijklmnoprstuvwxyz';
-const digits = '0123456789';
-const spec = '+-_^<>#№@«»&!/[]().,';
+
 const validatorItems:Array<IValidatorItem> = [
   {
     name: 'main',

@@ -8,12 +8,14 @@ import InnflGenerator from '../common/innfl_generator';
 import OgrnGenerator from '../common/ogrn_generator';
 import OgrnipGenerator from "../common/ogrnip_generator";
 import SnilsGenerator from "../common/snils_generator";
+import EmailGenerator from "../common/email_generator";
 
 const innGen = new InnGenerator();
 const innFlGen = new InnflGenerator();
 const ogrnGen = new OgrnGenerator();
 const ogrnipGen = new OgrnipGenerator();
 const snilsGen = new SnilsGenerator();
+const emailGen = new EmailGenerator();
 
 const Persons : React.FC = () => {
   return (
@@ -22,6 +24,7 @@ const Persons : React.FC = () => {
         <Card title="Физ. лицо" color={Colors.info}>
           <Field name="inn_fl" title="ИНН" generator={innFlGen} />
           <Field name="snils_fl" title="СНИЛС" generator={snilsGen} />
+          <Field name="email_fl" title="EMail" generator={emailGen} />
         </Card>
       </div>
       <div className="mb-5 text-center">
