@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {Card} from "./card";
 import {Colors} from "../common/color";
 import {Field} from "./field";
@@ -21,10 +21,10 @@ const KppGenParam: IRndGenParam = {
 };
 
 const BankFields : React.FC = () => {
-  const [bikVal, setBikVal] = useState<string>('');
+  const [bikVal, setBikVal] = useState<IKsGenParam>({ bik: '' });
 
   function updateBik(val: string):void {
-    setBikVal(val);
+    setBikVal({ bik: val } );
   }
 
   return (
@@ -33,8 +33,8 @@ const BankFields : React.FC = () => {
         <Field name="bank_bik" title="БИК" generator={bikGen} onUpdate={updateBik}/>
         <Field name="bank_kpp" title="КПП" params={KppGenParam} generator={rndGen} />
         <Field name="bank_okpo" title="ОКПО" generator={okpoGen} />
-        <Field name="bank_rs" title="Расчетный счет" params={ {bik: bikVal } as IKsGenParam } generator={rsGen} />
-        <Field name="bank_ks" title="Корреспондентский счет" params={ {bik: bikVal } as IKsGenParam } generator={korGen} />
+        <Field name="bank_rs" title="Расчетный счет" params={ bikVal } generator={rsGen} />
+        <Field name="bank_ks" title="Корреспондентский счет" params={ bikVal } generator={korGen} />
       </Card>
     </div>
   );
