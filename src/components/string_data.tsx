@@ -1,6 +1,6 @@
 import {Card} from "./card";
 import {Colors} from "../common/color";
-import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import React, {ChangeEvent, KeyboardEvent, useState, useCallback} from "react";
 import {Field} from "./field";
 import RandGenerator, {IRndGenParam} from "../common/rand_generator";
 
@@ -43,20 +43,23 @@ const StringData : React.FC = () => {
     len: valStr.num
   }
 
-  function changeValidator(event: ChangeEvent<HTMLSelectElement>) {
-    let data = {...valStr};
-    data.validator = event.target.value;
-    setStrVal(data);
-  }
+  const changeValidator = useCallback((event: ChangeEvent<HTMLSelectElement>): void => {
+    setStrVal({
+      ...valStr,
+      validator: event.target.value
+    });
+  }, [valStr]);
 
-  function changeNum(event: ChangeEvent<HTMLInputElement>) {
-    let data = {...valStr};
+  const changeNum = useCallback((event: ChangeEvent<HTMLInputElement>): void => {
     const val = +event.target.value;
-    data.num = Math.min((isNaN(val) || val < 0) ? 0 : val, 5000);
-    setStrVal(data);
-  }
+    setStrVal({
+      ...valStr,
+      num: Math.min((isNaN(val) || val < 0) ? 0 : val, 5000)
+    });
+  },[valStr]);
 
-  const pressInputKey = (e: KeyboardEvent<HTMLInputElement>) =>{
+
+  const pressInputKey = (e: KeyboardEvent<HTMLInputElement>) => {
     if( isNaN(+e.key)) {
       e.preventDefault();
     }
