@@ -24,6 +24,7 @@ const Field : React.FC<IField> = ({ name, title , generator,params, onUpdate,asT
   useEffect(() => {
     const newVal = generator.generate(params);
     setVal(newVal);
+    valRefresh();
   }, [params, generator]);
 
   const copyEventListener = (e: ClipboardEvent) => {
